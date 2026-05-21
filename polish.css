@@ -1,0 +1,680 @@
+:root {
+  --ink: #211b18;
+  --muted: #6a5a51;
+  --paper: #fff7e7;
+  --paper-strong: #fffdf7;
+  --gold: #f2bd4b;
+  --shadow: rgba(29, 18, 11, 0.16);
+  --card-width: 188px;
+  --card-height: 192px;
+  --card-padding-y: 14px;
+  --card-padding-x: 13px;
+  --card-icon-size: 2.85rem;
+  --card-title-size: 1.42rem;
+  --card-desc-size: 0.92rem;
+}
+
+body {
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(31, 80, 96, 0.18), transparent 30%),
+    linear-gradient(135deg, #dcebd9 0%, #f8efd8 48%, #e7c9a4 100%);
+  padding: 16px;
+}
+
+.game {
+  width: min(100%, 1080px);
+  min-height: calc(100vh - 32px);
+  gap: 14px;
+}
+
+header,
+.fighter,
+.log,
+.start-panel,
+.reward-panel {
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  border-radius: 8px;
+  box-shadow: 0 18px 46px var(--shadow);
+}
+
+header {
+  padding: 16px 20px;
+  background: rgba(255, 253, 247, 0.84);
+  backdrop-filter: blur(12px);
+}
+
+h1 {
+  font-size: clamp(1.55rem, 4vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.badge {
+  min-width: 104px;
+  color: #382514;
+  background: linear-gradient(180deg, #fff3be, #f4c95f);
+  border: 1px solid rgba(127, 83, 28, 0.38);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.battlefield {
+  gap: 14px;
+}
+
+.fighter {
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 247, 231, 0.88)),
+    var(--paper);
+}
+
+.fighter::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, rgba(117, 83, 45, 0.09));
+  pointer-events: none;
+}
+
+.fighter.enemy {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 237, 230, 0.9)),
+    #fff2ea;
+}
+
+.fighter-top,
+.status {
+  position: relative;
+  z-index: 1;
+}
+
+.fighter-name {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  line-height: 1.1;
+}
+
+.small-status {
+  min-width: 118px;
+  font-size: 0.96rem;
+  color: var(--muted);
+}
+
+.sprite-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 212px;
+  padding: 10px;
+}
+
+.sprite {
+  position: relative;
+  display: block;
+  width: min(74%, 250px);
+  aspect-ratio: 1;
+  font-size: 1rem;
+  filter: drop-shadow(0 18px 14px rgba(41, 27, 16, 0.2));
+}
+
+.ground-shadow {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 6%;
+  height: 12%;
+  background: rgba(39, 25, 16, 0.16);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.hero-cape,
+.hero-head,
+.hero-hair,
+.hero-body,
+.hero-arm,
+.hero-shield,
+.hero-sword,
+.slime-body,
+.slime-shine,
+.eye,
+.goblin-club,
+.goblin-ear,
+.goblin-body,
+.goblin-face,
+.goblin-eye,
+.goblin-mouth,
+.goblin-fang,
+.orc-axe,
+.orc-ear,
+.orc-head,
+.orc-brow,
+.orc-body,
+.orc-tusk,
+.dragon-wing,
+.dragon-body,
+.dragon-head,
+.dragon-tail,
+.dragon-eye,
+.dragon-horn {
+  position: absolute;
+}
+
+.hero-cape {
+  left: 26%;
+  top: 33%;
+  width: 48%;
+  height: 44%;
+  background: linear-gradient(160deg, #8e3342, #d95c54);
+  border-radius: 56% 44% 48% 42%;
+  transform: rotate(-8deg);
+}
+
+.hero-head {
+  left: 38%;
+  top: 17%;
+  width: 25%;
+  height: 25%;
+  background: #f0c29b;
+  border: 4px solid #5d3b2f;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.hero-head::before,
+.hero-head::after {
+  content: "";
+  position: absolute;
+  top: 46%;
+  width: 14%;
+  height: 14%;
+  background: #241a17;
+  border-radius: 50%;
+}
+
+.hero-head::before { left: 27%; }
+.hero-head::after { right: 27%; }
+
+.hero-hair {
+  left: 36%;
+  top: 13%;
+  width: 29%;
+  height: 18%;
+  background: #5a3425;
+  border-radius: 48% 52% 30% 36%;
+  z-index: 4;
+}
+
+.hero-body {
+  left: 34%;
+  top: 39%;
+  width: 32%;
+  height: 34%;
+  background: linear-gradient(180deg, #3f7bc7, #245496);
+  border: 5px solid #253b65;
+  border-radius: 28% 28% 18% 18%;
+  z-index: 2;
+}
+
+.hero-body::after {
+  content: "";
+  position: absolute;
+  left: 13%;
+  right: 13%;
+  top: 18%;
+  height: 13%;
+  background: #f2bd4b;
+  border-radius: 999px;
+}
+
+.hero-arm {
+  top: 43%;
+  width: 12%;
+  height: 31%;
+  background: #f0c29b;
+  border: 4px solid #5d3b2f;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.hero-arm.left {
+  left: 23%;
+  transform: rotate(20deg);
+}
+
+.hero-arm.right {
+  right: 22%;
+  transform: rotate(-24deg);
+}
+
+.hero-shield {
+  left: 17%;
+  top: 48%;
+  width: 28%;
+  height: 31%;
+  background: linear-gradient(145deg, #f8f0dd 0 45%, #c6d3df 46% 100%);
+  border: 5px solid #5d6e80;
+  border-radius: 48% 48% 58% 58%;
+  z-index: 4;
+}
+
+.hero-sword {
+  right: 19%;
+  top: 23%;
+  width: 8%;
+  height: 54%;
+  background: linear-gradient(90deg, #dae4ed, #ffffff 48%, #9caab8 52%);
+  border: 2px solid #657486;
+  border-radius: 999px 999px 4px 4px;
+  transform: rotate(26deg);
+  transform-origin: 50% 85%;
+  z-index: 4;
+}
+
+.hero-sword::after {
+  content: "";
+  position: absolute;
+  left: -90%;
+  bottom: 8%;
+  width: 280%;
+  height: 9%;
+  background: #c9973e;
+  border-radius: 999px;
+}
+
+.slime-body {
+  left: 20%;
+  right: 20%;
+  top: 31%;
+  height: 50%;
+  background: linear-gradient(150deg, #86e98c, #29a85f);
+  border: 5px solid #247645;
+  border-radius: 54% 54% 48% 48%;
+  z-index: 2;
+}
+
+.slime-shine {
+  left: 34%;
+  top: 39%;
+  width: 15%;
+  height: 12%;
+  background: rgba(255, 255, 255, 0.62);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.eye {
+  top: 54%;
+  width: 7%;
+  height: 9%;
+  background: #14191b;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.eye.left { left: 40%; }
+.eye.right { right: 40%; }
+.orc .eye { top: 47%; width: 6%; height: 7%; }
+
+.goblin-face {
+  left: 21%;
+  top: 20%;
+  width: 58%;
+  height: 53%;
+  background: linear-gradient(180deg, #75cf67, #3e9b52);
+  border: 5px solid #285932;
+  border-radius: 48% 48% 40% 40%;
+  z-index: 3;
+}
+
+.goblin-ear {
+  top: 36%;
+  width: 28%;
+  height: 23%;
+  background: #62b957;
+  border: 5px solid #285932;
+  clip-path: polygon(0 50%, 100% 5%, 78% 100%);
+  z-index: 2;
+}
+
+.goblin-ear.left { left: 4%; transform: rotate(-11deg); }
+.goblin-ear.right { right: 4%; transform: scaleX(-1) rotate(-11deg); }
+
+.goblin-eye {
+  top: 43%;
+  width: 10%;
+  height: 10%;
+  background: #151a14;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.goblin-eye.left { left: 38%; }
+.goblin-eye.right { right: 38%; }
+
+.goblin-mouth {
+  left: 39%;
+  top: 59%;
+  width: 22%;
+  height: 10%;
+  border-bottom: 5px solid #1f4b2a;
+  border-radius: 0 0 50% 50%;
+  z-index: 4;
+}
+
+.goblin-fang,
+.orc-tusk {
+  background: #fff9df;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  z-index: 5;
+}
+
+.goblin-fang {
+  top: 67%;
+  width: 6%;
+  height: 10%;
+}
+
+.goblin-fang.left { left: 44%; }
+.goblin-fang.right { right: 44%; }
+
+.goblin-club {
+  right: 9%;
+  top: 3%;
+  width: 15%;
+  height: 67%;
+  background: #8b5a2b;
+  border: 4px solid #5e3518;
+  border-radius: 999px;
+  transform: rotate(34deg);
+  transform-origin: bottom center;
+  z-index: 1;
+}
+
+.goblin-club::before {
+  content: "";
+  position: absolute;
+  left: -43%;
+  top: -10%;
+  width: 185%;
+  height: 27%;
+  background: #6d4322;
+  border: 4px solid #4a2b14;
+  border-radius: 18px;
+}
+
+.goblin-body,
+.orc-body {
+  bottom: 11%;
+  border-radius: 36% 36% 14% 14%;
+  z-index: 1;
+}
+
+.goblin-body {
+  left: 31%;
+  width: 38%;
+  height: 22%;
+  background: #466b42;
+  border: 5px solid #2d4630;
+}
+
+.orc-axe {
+  left: 13%;
+  top: 13%;
+  width: 8%;
+  height: 65%;
+  background: #6e4530;
+  border-radius: 999px;
+  transform: rotate(-22deg);
+  z-index: 1;
+}
+
+.orc-axe::before {
+  content: "";
+  position: absolute;
+  left: -120%;
+  top: -8%;
+  width: 310%;
+  height: 20%;
+  background: linear-gradient(180deg, #e6ebef, #96a3ad);
+  border: 3px solid #5f6970;
+  border-radius: 60% 40% 54% 46%;
+}
+
+.orc-head {
+  left: 25%;
+  top: 20%;
+  width: 50%;
+  height: 44%;
+  background: linear-gradient(180deg, #b36b50, #864330);
+  border: 6px solid #4e2f29;
+  border-radius: 44% 44% 38% 38%;
+  z-index: 3;
+}
+
+.orc-ear {
+  top: 34%;
+  width: 22%;
+  height: 20%;
+  background: #99533f;
+  border: 5px solid #4e2f29;
+  clip-path: polygon(0 50%, 100% 0, 80% 100%);
+  z-index: 2;
+}
+
+.orc-ear.left { left: 11%; }
+.orc-ear.right { right: 11%; transform: scaleX(-1); }
+
+.orc-brow {
+  top: 41%;
+  width: 16%;
+  height: 6%;
+  background: #30201b;
+  border-radius: 999px;
+  z-index: 4;
+}
+
+.orc-brow.left { left: 36%; transform: rotate(13deg); }
+.orc-brow.right { right: 36%; transform: rotate(-13deg); }
+
+.orc-tusk {
+  top: 57%;
+  width: 8%;
+  height: 18%;
+}
+
+.orc-tusk.left { left: 39%; transform: rotate(8deg); }
+.orc-tusk.right { right: 39%; transform: rotate(-8deg); }
+
+.orc-body {
+  left: 28%;
+  width: 44%;
+  height: 25%;
+  background: linear-gradient(180deg, #4c5969, #2e3744);
+  border: 5px solid #252d36;
+}
+
+.dragon-wing {
+  top: 28%;
+  width: 38%;
+  height: 40%;
+  background: linear-gradient(145deg, #5b69c9, #343e85);
+  border: 5px solid #27305f;
+  clip-path: polygon(50% 0, 100% 100%, 55% 82%, 10% 100%);
+  z-index: 1;
+}
+
+.dragon-wing.left { left: 6%; transform: rotate(-18deg); }
+.dragon-wing.right { right: 6%; transform: scaleX(-1) rotate(-18deg); }
+
+.dragon-tail {
+  left: 13%;
+  bottom: 20%;
+  width: 45%;
+  height: 17%;
+  background: #4250aa;
+  border: 5px solid #27305f;
+  border-radius: 999px;
+  transform: rotate(18deg);
+  z-index: 2;
+}
+
+.dragon-body {
+  left: 32%;
+  top: 39%;
+  width: 38%;
+  height: 37%;
+  background: linear-gradient(180deg, #6f7df0, #4050bb);
+  border: 6px solid #27305f;
+  border-radius: 46% 46% 35% 35%;
+  z-index: 3;
+}
+
+.dragon-head {
+  left: 39%;
+  top: 18%;
+  width: 28%;
+  height: 28%;
+  background: linear-gradient(180deg, #8792ff, #5866d6);
+  border: 5px solid #27305f;
+  border-radius: 48% 48% 38% 38%;
+  z-index: 4;
+}
+
+.dragon-horn {
+  top: 11%;
+  width: 8%;
+  height: 16%;
+  background: #fff2ca;
+  border: 3px solid #7a6844;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  z-index: 5;
+}
+
+.dragon-horn.left { left: 41%; transform: rotate(-15deg); }
+.dragon-horn.right { right: 33%; transform: rotate(15deg); }
+
+.dragon-eye {
+  top: 30%;
+  width: 6%;
+  height: 8%;
+  background: #10151c;
+  border-radius: 50%;
+  z-index: 6;
+}
+
+.dragon-eye.left { left: 47%; }
+.dragon-eye.right { right: 39%; }
+
+.bar {
+  height: 18px;
+  background: rgba(64, 48, 34, 0.14);
+  border: 1px solid rgba(65, 46, 31, 0.28);
+  border-radius: 999px;
+}
+
+.fill {
+  background: linear-gradient(90deg, #2fb364, #b2de54);
+  border-radius: inherit;
+}
+
+.enemy .fill {
+  background: linear-gradient(90deg, #da5050, #f2a23d);
+}
+
+.intent-line {
+  padding: 6px 10px;
+  background: #fff0b6;
+  border: 1px solid rgba(166, 111, 38, 0.32);
+  border-radius: 999px;
+}
+
+.card {
+  position: relative;
+  color: #fffdf8;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 14px 30px var(--shadow);
+  isolation: isolate;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card:hover:not(:disabled),
+.card:focus-visible:not(:disabled) {
+  transform: translateY(-7px);
+  outline: 3px solid rgba(255, 239, 143, 0.88);
+  outline-offset: 3px;
+  box-shadow: 0 22px 38px rgba(29, 18, 11, 0.24);
+}
+
+.slash { background: linear-gradient(160deg, #457eea, #284c9e); }
+.heavy { background: linear-gradient(160deg, #e58c2f, #9b4f21); }
+.guard { background: linear-gradient(160deg, #48af6e, #246b47); }
+.heal { background: linear-gradient(160deg, #2fb5aa, #116f6b); }
+.focus { background: linear-gradient(160deg, #8266d8, #47328e); }
+
+.log,
+.start-panel,
+.reward-panel {
+  background: rgba(255, 253, 247, 0.9);
+}
+
+.restart,
+.start-button {
+  color: #2c1d10;
+  background: linear-gradient(180deg, #ffe39a, #efb642);
+  box-shadow: 0 7px 0 #b67a24;
+}
+
+.start-screen,
+.reward-screen {
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 780px) {
+  :root {
+    --card-width: min(320px, calc(100vw - 36px));
+    --card-height: 138px;
+    --card-padding-y: 12px;
+    --card-padding-x: 12px;
+    --card-icon-size: 2.45rem;
+    --card-title-size: 1.28rem;
+    --card-desc-size: 0.9rem;
+  }
+
+  body {
+    padding: 8px;
+  }
+
+  .game {
+    min-height: calc(100vh - 16px);
+    gap: 10px;
+  }
+
+  header {
+    padding: 14px;
+  }
+
+  .fighter {
+    min-height: 280px;
+    padding: 13px;
+  }
+
+  .sprite-wrap {
+    min-height: 120px;
+  }
+
+  .sprite {
+    width: min(42%, 152px);
+  }
+}

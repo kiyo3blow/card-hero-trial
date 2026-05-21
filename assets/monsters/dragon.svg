@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Original blue dragon monster">
+  <defs>
+    <linearGradient id="dragonSkin" x1="151" y1="83" x2="380" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9fe9ff"/>
+      <stop offset=".42" stop-color="#408bd7"/>
+      <stop offset="1" stop-color="#24407f"/>
+    </linearGradient>
+    <linearGradient id="wing" x1="82" y1="120" x2="438" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9de3ff"/>
+      <stop offset=".6" stop-color="#3659b4"/>
+      <stop offset="1" stop-color="#242855"/>
+    </linearGradient>
+    <filter id="dragonShadow" x="-20%" y="-20%" width="140%" height="145%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#10182f" flood-opacity=".34"/>
+    </filter>
+  </defs>
+  <ellipse cx="257" cy="446" rx="132" ry="30" fill="#10182f" opacity=".24"/>
+  <g filter="url(#dragonShadow)">
+    <path d="M186 221C135 171 85 141 36 133c12 77 52 128 122 154Z" fill="url(#wing)"/>
+    <path d="M326 221c51-50 101-80 150-88-12 77-52 128-122 154Z" fill="url(#wing)"/>
+    <path d="M83 154c22 33 45 61 69 84" fill="none" stroke="#c5f6ff" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+    <path d="M429 154c-22 33-45 61-69 84" fill="none" stroke="#c5f6ff" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+    <path d="M168 352c8-73 40-111 89-111s82 38 89 111l17 86H151Z" fill="url(#dragonSkin)"/>
+    <path d="M189 361c21 28 43 42 67 42 25 0 48-14 68-42l19 77H170Z" fill="#f7e8b0" opacity=".82"/>
+    <path d="M163 185c0-61 38-105 94-105s94 44 94 105c0 76-39 132-94 132s-94-56-94-132Z" fill="url(#dragonSkin)"/>
+    <path d="M207 86 190 35l47 35Zm97 1 20-52-50 35Z" fill="#f7e8b0"/>
+    <path d="M228 95c11-32 23-55 36-69 10 26 15 51 14 77Z" fill="#d7f9ff"/>
+    <path d="M181 164c-23-6-42-20-58-42 35-9 62-2 82 21Z" fill="#5ca5e8"/>
+    <path d="M331 164c23-6 42-20 58-42-35-9-62-2-82 21Z" fill="#5ca5e8"/>
+    <ellipse cx="221" cy="218" rx="16" ry="23" fill="#11192c"/>
+    <ellipse cx="291" cy="218" rx="16" ry="23" fill="#11192c"/>
+    <circle cx="226" cy="207" r="5" fill="#f4fbff"/>
+    <circle cx="296" cy="207" r="5" fill="#f4fbff"/>
+    <path d="M226 266c20 17 42 17 62 0" fill="none" stroke="#12223d" stroke-width="12" stroke-linecap="round"/>
+    <path d="m236 280 8 24 12-19 12 19 8-24Z" fill="#fff2c4"/>
+    <path d="M343 377c46 2 83-13 110-46 15 41-12 85-72 98-19 4-35 4-48 1Z" fill="#24407f"/>
+    <path d="M159 354c-35 9-57 31-65 65" fill="none" stroke="#408bd7" stroke-width="25" stroke-linecap="round"/>
+    <path d="M353 354c35 9 57 31 65 65" fill="none" stroke="#408bd7" stroke-width="25" stroke-linecap="round"/>
+  </g>
+</svg>

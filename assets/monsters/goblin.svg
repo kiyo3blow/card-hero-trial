@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Original goblin scout monster">
+  <defs>
+    <linearGradient id="goblinSkin" x1="166" y1="120" x2="352" y2="384" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#aadf58"/>
+      <stop offset=".56" stop-color="#5ba943"/>
+      <stop offset="1" stop-color="#2f6b38"/>
+    </linearGradient>
+    <linearGradient id="vest" x1="182" y1="276" x2="330" y2="424" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6d4a2e"/>
+      <stop offset="1" stop-color="#33241d"/>
+    </linearGradient>
+    <filter id="goblinShadow" x="-20%" y="-20%" width="140%" height="145%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#1a2b1e" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <ellipse cx="260" cy="444" rx="120" ry="30" fill="#142218" opacity=".22"/>
+  <g filter="url(#goblinShadow)">
+    <path d="M139 198 65 164c-18-8-16-34 3-39l108 27Z" fill="#6fb64a"/>
+    <path d="M373 198 447 164c18-8 16-34-3-39l-108 27Z" fill="#6fb64a"/>
+    <path d="M166 358c8-70 32-109 91-109s84 39 91 109l14 79H150Z" fill="url(#vest)"/>
+    <path d="M191 347c19 18 41 28 66 28 26 0 48-10 67-28l22 91H170Z" fill="#203a31" opacity=".5"/>
+    <path d="M151 197c0-64 45-103 105-103s105 39 105 103c0 75-42 122-105 122s-105-47-105-122Z" fill="url(#goblinSkin)"/>
+    <path d="M177 151c24-41 70-53 120-41 18 4 36 12 52 24-17-47-61-73-96-73-44 0-73 29-76 90Z" fill="#27432f"/>
+    <path d="M196 217c21-12 42-12 61 0" fill="none" stroke="#24412d" stroke-width="12" stroke-linecap="round"/>
+    <path d="M318 217c-21-12-42-12-61 0" fill="none" stroke="#24412d" stroke-width="12" stroke-linecap="round"/>
+    <ellipse cx="216" cy="237" rx="16" ry="20" fill="#172018"/>
+    <ellipse cx="296" cy="237" rx="16" ry="20" fill="#172018"/>
+    <circle cx="222" cy="229" r="5" fill="#f4ffd2"/>
+    <circle cx="302" cy="229" r="5" fill="#f4ffd2"/>
+    <path d="M225 280c18 14 44 14 62 0" fill="none" stroke="#17301f" stroke-width="12" stroke-linecap="round"/>
+    <path d="m237 287 9 27 10-23 10 23 9-27Z" fill="#f4f0cd"/>
+    <path d="M120 299c-30 36-40 73-30 111" fill="none" stroke="#6b3c22" stroke-width="23" stroke-linecap="round"/>
+    <path d="M104 260c42-2 89 24 94 68" fill="none" stroke="#6fb64a" stroke-width="26" stroke-linecap="round"/>
+    <path d="M388 284c20 12 32 34 27 57" fill="none" stroke="#6fb64a" stroke-width="26" stroke-linecap="round"/>
+    <path d="M386 153c22-30 31-64 22-101" fill="none" stroke="#5d3822" stroke-width="22" stroke-linecap="round"/>
+    <path d="M381 145c19 15 38 20 60 16" fill="none" stroke="#8e5b38" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>

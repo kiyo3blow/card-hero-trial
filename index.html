@@ -5,28 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>カード勇者の試練</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="polish.css">
+  <link rel="stylesheet" href="monster-images.css">
 </head>
 <body>
   <div class="game">
     <header>
       <h1>カード勇者の試練</h1>
       <div class="badge-row">
-        <div class="badge" id="turnBadge">プレイヤーのターン</div>
-        <div class="badge" id="stageBadge">1体目</div>
+        <div class="badge turn" id="turnBadge">プレイヤーのターン</div>
+        <div class="badge stage" id="stageBadge">1体目</div>
       </div>
     </header>
 
     <main class="battlefield">
       <section class="fighter player" aria-label="プレイヤー">
         <div class="fighter-top">
-          <span>勇者</span>
+          <span class="fighter-name">勇者</span>
           <span class="small-status">
             <span>デッキ <span id="deckCount">11</span>枚</span>
             <span>HP <span id="playerHp">30</span>/<span id="playerMaxHp">30</span></span>
           </span>
         </div>
         <div class="sprite-wrap">
-          <div class="sprite" aria-hidden="true">🛡️</div>
+          <div class="sprite hero-sprite" aria-hidden="true">
+            <span class="hero-cape"></span>
+            <span class="hero-head"></span>
+            <span class="hero-hair"></span>
+            <span class="hero-body"></span>
+            <span class="hero-arm left"></span>
+            <span class="hero-arm right"></span>
+            <span class="hero-shield"></span>
+            <span class="hero-sword"></span>
+            <span class="ground-shadow"></span>
+          </div>
         </div>
         <div class="status">
           <div class="hp-line">
@@ -40,14 +52,17 @@
 
       <section class="fighter enemy" id="enemyBox" aria-label="敵">
         <div class="fighter-top">
-          <span id="enemyName">スライム</span>
+          <span class="fighter-name" id="enemyName">スライム</span>
           <span class="small-status">
             <span>攻撃 <span id="enemyAttack">4</span></span>
             <span>HP <span id="enemyHp">18</span>/<span id="enemyMaxHp">18</span></span>
           </span>
         </div>
         <div class="sprite-wrap">
-          <div class="sprite enemy-sprite" id="enemySprite" aria-hidden="true">🟢</div>
+          <div class="sprite enemy-sprite slime" id="enemySprite" aria-hidden="true">
+            <img class="monster-art" src="assets/monsters/slime.svg" alt="">
+            <span class="ground-shadow"></span>
+          </div>
         </div>
         <div class="status">
           <div class="hp-line">
@@ -90,5 +105,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="polish.js"></script>
 </body>
 </html>
