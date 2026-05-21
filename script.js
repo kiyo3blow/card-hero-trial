@@ -94,7 +94,7 @@ const cardBook = {
 const enemyList = [
   { name: "スライム", hp: 20, attack: 4, sprite: "🟢", spriteType: "emoji" },
   { name: "ゴブリン", hp: 28, attack: 5, spriteType: "goblin" },
-  { name: "オーク", hp: 34, attack: 6, sprite: "👹", spriteType: "emoji" },
+  { name: "オーク", hp: 30, attack: 5, sprite: "👹", spriteType: "emoji" },
   { name: "ドラゴン", hp: 48, attack: 8, sprite: "🐲", spriteType: "emoji" }
 ];
 
@@ -244,13 +244,25 @@ function isAttackCard(cardId) {
 }
 
 function isHealCard(cardId) {
-  return cardId === "heal";
+  return cardBook[cardId]?.kind === "heal";
 }
 
 function randomAttackCard() {
   const attacks = state.deck.filter(isAttackCard);
   const attackPool = attacks.length > 0 ? attacks : ["slash", "heavy"];
   return attackPool[Math.floor(Math.random() * attackPool.length)];
+}
+
+function randomHealCard() {
+  const heals = state.deck.filter(isHealCard);
+  const healPool = heals.length > 0 ? heals : ["heal"];
+  return healPool[Math.floor(Math.random() * healPool.length)];
+}
+
+function randomNonHealCard() {
+  const nonHeals = state.deck.filter((id) => !isHealCard(id));
+  const pool = nonHeals.length > 0 ? nonHeals : state.deck;
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 function randomFromPool(pool) {
@@ -263,12 +275,13 @@ function drawHand() {
   const healChance = healingCardChance();
   if (!state.hand.some(isHealCard) && Math.random() < healChance) {
     const index = Math.floor(Math.random() * state.hand.length);
-    state.hand[index] = "heal";
+    state.hand[index] = randomHealCard();
   }
 
   while (state.hand.filter(isHealCard).length > 1) {
-    const extraHealIndex = state.hand.findIndex((cardId, index) => isHealCard(cardId) && state.hand.indexOf(cardId) !== index);
-    state.hand[extraHealIndex] = randomDeckCardExcluding("heal");
+    const firstHealIndex = state.hand.findIndex(isHealCard);
+    const extraHealIndex = state.hand.findIndex((cardId, index) => index !== firstHealIndex && isHealCard(cardId));
+    state.hand[extraHealIndex] = randomNonHealCard();
   }
 
   if (!state.hand.some(isAttackCard)) {
